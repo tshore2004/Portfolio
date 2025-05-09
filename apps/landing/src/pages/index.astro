@@ -1,0 +1,16 @@
+---
+// apps/landing/src/pages/index.astro
+import Layout from '../layouts/BaseLayout.astro';  // optional, remove if you don't have a layout
+
+const STOCK_URL = import.meta.env.VITE_STOCK_URL;
+const BUDGETOR_URL = import.meta.env.VITE_BUDGETOR_URL;
+---
+
+<Layout title="Thomas Shore – Portfolio">
+  <h1>Hi, I’m Thomas 👋</h1>
+  <p>Explore my projects:</p>
+  <ul>
+    <li><a href={STOCK_URL} target="_blank">Stock Predictor</a></li>
+    <li><a href={BUDGETOR_URL}   target="_blank">Budgetor</a></li>
+  </ul>
+</Layout>
