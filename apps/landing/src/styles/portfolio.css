@@ -1,90 +1,156 @@
 /* apps/landing/src/styles/projects.css */
 
+/* =========================
+   Global, Dark-Mode Styles
+   ========================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.5;
+}
+
+/* Container for the entire portfolio page */
 .projects-container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  font-family: sans-serif;
-  color: #333;
 }
 
-.projects-container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+/* Page Title */
+.page-title {
+  font-size: 2.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
 }
 
-.projects-container .intro {
+/* Intro paragraph below the title */
+.intro {
   font-size: 1.125rem;
+  color: #c0c0c0;
   margin-bottom: 2rem;
-  color: #555;
 }
 
-.projects {
-  display: grid;
-  gap: 1.5rem;
-  /* auto-fill cards of at least 280px, growing to fill row */
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-}
+/* =========================
+   Project Card (Each Section)
+   ========================= */
 
-.card {
+.project-card {
+  background-color: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  overflow: hidden;
 }
 
-.card-content {
-  padding: 1.25rem;
-  flex-grow: 1;
+/* Title of each project */
+.project-title {
+  margin: 1.5rem 1.5rem 0.5rem 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-.card-content h2 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.5rem;
-  color: #222;
+/* Description text for each project */
+.project-desc {
+  margin: 0 1.5rem 1rem 1.5rem;
+  font-size: 1rem;
+  color: #b0b0b0;
 }
 
-.card-content p {
-  margin: 0;
-  line-height: 1.5;
-  color: #555;
+/* Wrapper around each iframe to enforce aspect ratio and spacing */
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  /* 16:9 aspect ratio: height = width * 9/16 */
+  padding-top: 56.25%;
+  background-color: #000; /* fallback background while iframe loads */
+  margin-bottom: 1rem;
+  border-top: 1px solid #2e2e2e;
 }
 
-.card-footer {
-  background: #f9f9f9;
-  padding: 0.75rem 1rem;
+/* The iframe itself fills the wrapper absolutely */
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+/* Button row at the bottom of each project card */
+.button-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  background-color: #1e1e1e;
 }
 
+/* Shared button styling */
 .button {
+  display: inline-block;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: background-color 0.2s ease;
-  border: 1px solid #888;
-  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
 }
 
-/* “Live Demo” button (green) */
-.button.demo {
-  background-color: #4caf50;
-  border-color: #4caf50;
-  color: #fff;
+/* “Open in New Tab” button */
+.button-live {
+  background-color: #0066cc;
+  border: 1px solid #005bb5;
+  color: #ffffff;
 }
 
-.button.demo:hover {
-  background-color: #43a047;
-  border-color: #43a047;
+.button-live:hover {
+  background-color: #005bb5;
 }
 
-/* “GitHub” button (gray border, light-hover) */
-.button.github:hover {
-  background-color: #ececec;
+/* “GitHub” button */
+.button-github {
+  background-color: #333333;
+  border: 1px solid #4f4f4f;
+  color: #ffffff;
+}
+
+.button-github:hover {
+  background-color: #444444;
+}
+
+@media (max-width: 640px) {
+  /* On small screens, stack project-cards with tighter padding */
+  .project-title {
+    margin: 1rem 1rem 0.5rem 1rem;
+    font-size: 1.5rem;
+  }
+  .project-desc {
+    margin: 0 1rem 1rem 1rem;
+    font-size: 0.95rem;
+  }
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 1rem 1rem 1.5rem 1rem;
+  }
+  .button {
+    width: 100%;
+    padding: 0.6rem;
+  }
 }

@@ -2,80 +2,98 @@
 import Layout from '../layouts/BaseLayout.astro';
 
 // Import the external stylesheet:
-import '../styles/portfolio.css';
+import '../styles/projects.css';
 
-// Live URLs (set these in your .env file, e.g. VITE_STOCK_URL, VITE_BUDGETOR_URL)
+// Live URLs (make sure these are set in your .env file)
 const STOCK_URL    = import.meta.env.VITE_STOCK_URL;
 const BUDGETOR_URL = import.meta.env.VITE_BUDGETOR_URL;
 
-// GitHub URLs for each project (update if your repo paths differ)
+// GitHub URLs for each project (adjust if your repos differ)
 const STOCK_GITHUB    = 'https://github.com/tshore2004/stock-predictor-web';
 const BUDGETOR_GITHUB = 'https://github.com/tshore2004/Budgetor';
 ---
 
 <Layout title="Thomas Shore – Portfolio">
-  <section class="projects-container">
-    <h1>Hi, I’m Thomas 👋</h1>
+  <div class="projects-container">
+    <h1 class="page-title">Thomas Shore – Portfolio</h1>
     <p class="intro">
-      Here are a few of my CSE projects. Click “Live Demo” to see each in action, or “GitHub” to browse the source.
+      Below are two of my CSE projects. You can interact with each app directly via the embedded view, or click “Open in New Tab” (live demo) and “GitHub” to see the code.
     </p>
 
-    <div class="projects">
-      <!-- STOCK PREDICTOR CARD -->
-      <article class="card">
-        <div class="card-content">
-          <h2>Stock Predictor</h2>
-          <p>
-            A React + FastAPI app that predicts short-term stock movement using an LSTM neural network. Deployed on Vercel.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a
-            href={STOCK_URL}
-            class="button demo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Live Demo
-          </a>
-          <a
-            href={STOCK_GITHUB}
-            class="button github"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </div>
-      </article>
+    <!-- ====================== -->
+    <!-- STOCK PREDICTOR SECTION -->
+    <!-- ====================== -->
+    <section class="project-card">
+      <h2 class="project-title">Stock Predictor</h2>
+      <p class="project-desc">
+        A React + FastAPI application that uses an LSTM neural network to predict short-term stock movement. Deployed on Vercel.
+      </p>
 
-      <!-- BUDGETOR CARD -->
-      <article class="card">
-        <div class="card-content">
-          <h2>Budgetor</h2>
-          <p>
-            A full-stack budgeting application (Astro + Node.js + MongoDB) that helps users track income and expenses in real time.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a
-            href={BUDGETOR_URL}
-            class="button demo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Live Demo
-          </a>
-          <a
-            href={BUDGETOR_GITHUB}
-            class="button github"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
+      <div class="iframe-wrapper">
+        <iframe
+          src={STOCK_URL}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="button-row">
+        <a
+          href={STOCK_URL}
+          class="button button-live"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in New Tab
+        </a>
+        <a
+          href={STOCK_GITHUB}
+          class="button button-github"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- ================== -->
+    <!-- BUDGETOR SECTION -->
+    <!-- ================== -->
+    <section class="project-card">
+      <h2 class="project-title">Budgetor</h2>
+      <p class="project-desc">
+        A full-stack budgeting application (Astro + Node.js + MongoDB) that lets users track income and expenses in real time.
+      </p>
+
+      <div class="iframe-wrapper">
+        <iframe
+          src={BUDGETOR_URL}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="button-row">
+        <a
+          href={BUDGETOR_URL}
+          class="button button-live"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open in New Tab
+        </a>
+        <a
+          href={BUDGETOR_GITHUB}
+          class="button button-github"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </div>
+    </section>
+  </div>
 </Layout>
