@@ -2,7 +2,7 @@
   GLOBAL STYLES & DARK THEME
 ─────────────────────────────────────────────────────────────────────────*/
 html {
-  scroll-behavior: smooth; /* Smooth scroll when clicking anchor links */
+  scroll-behavior: smooth; /* Smooth scroll on anchor clicks */
 }
 
 body {
@@ -10,8 +10,7 @@ body {
   padding: 0;
   background-color: #121212;
   color: #e0e0e0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -68,7 +67,7 @@ body {
 ─────────────────────────────────────────────────────────────────────────*/
 .hero-section {
   background-color: #1e1e1e;
-  padding: 6rem 2rem; /* More vertical space */
+  padding: 6rem 2rem; /* Increased vertical padding for flow */
   text-align: center;
 }
 
@@ -103,12 +102,11 @@ body {
   background-color: #2e3b4e;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.75rem 1.5rem; /* Slightly larger buttons */
+  padding: 0.75rem 1.5rem; /* Larger click area */
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 500;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  white-space: nowrap;
 }
 
 .button-hero:hover {
@@ -138,7 +136,7 @@ body {
 ─────────────────────────────────────────────────────────────────────────*/
 .projects-section {
   max-width: 1100px;
-  margin: 4rem auto; /* Extra top margin to separate from hero */
+  margin: 4rem auto; /* More top margin to separate from hero */
   padding: 0 1rem;
 }
 
@@ -152,10 +150,11 @@ body {
   animation: fadeIn 1s forwards ease-in-out 0.4s;
 }
 
+/* Increase minimum card width so they’re not squished */
 .projects-grid {
   display: grid;
-  gap: 2.5rem; /* Increased gap between cards */
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem; /* Larger gaps */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 .project-card {
@@ -176,7 +175,7 @@ body {
 }
 
 .card-top {
-  padding: 1.75rem 1.75rem 0 1.75rem; /* More padding at top */
+  padding: 1.75rem 1.75rem 0 1.75rem; /* Increased padding */
 }
 
 .card-title {
@@ -187,7 +186,7 @@ body {
 }
 
 .card-desc {
-  margin: 0.5rem 0 1.25rem 0; /* More bottom margin */
+  margin: 0.5rem 0 1.25rem 0;
   font-size: 0.95rem;
   color: #b0b0b0;
   line-height: 1.4;
@@ -238,7 +237,7 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 1.5rem 1.75rem; /* Increased padding */
+  padding: 1.5rem 1.75rem; /* More padding */
   background-color: #1f1f1f;
 }
 
@@ -247,7 +246,7 @@ body {
   border: 1px solid #005bb5;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.7rem 1.3rem; /* Slightly larger click area */
+  padding: 0.7rem 1.3rem;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 500;
@@ -285,11 +284,11 @@ body {
 }
 
 /*─────────────────────────────────────────────────────────────────────────
-  ABOUT SECTION
+  ABOUT ME SECTION
 ─────────────────────────────────────────────────────────────────────────*/
 .about-section {
   max-width: 800px;
-  margin: 4rem auto; /* Extra top margin */
+  margin: 4rem auto; /* Increased top margin for separation */
   padding: 0 1rem;
 }
 
@@ -297,17 +296,38 @@ body {
   background-color: #1e1e1e;
   border: 1px solid #2e2e2e;
   border-radius: 8px;
-  padding: 2rem; /* Increased padding for breathing room */
+  padding: 2rem; /* Larger padding */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   opacity: 0;
   animation: fadeIn 1s forwards ease-in-out 0.8s;
 }
 
 .about-inner p {
-  margin: 0;
-  font-size: 1.05rem; /* Slightly larger text */
+  margin: 0 0 1.5rem 0; /* Space below paragraph */
+  font-size: 1.05rem;
   color: #cccccc;
   line-height: 1.6;
+}
+
+.about-button-row {
+  text-align: center;
+}
+
+.button-view-resume {
+  background-color: #4caf50;
+  border: 1px solid #388e3c;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button-view-resume:hover {
+  background-color: #388e3c;
+  transform: translateY(-1px);
 }
 
 /*─────────────────────────────────────────────────────────────────────────
@@ -335,7 +355,7 @@ body {
   background-color: #1e1e1e;
   border: 1px solid #2e2e2e;
   border-radius: 8px;
-  padding: 1.5rem; /* More padding */
+  padding: 1.5rem; /* Larger padding */
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;

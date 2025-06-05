@@ -2,7 +2,7 @@
 import Layout from '../layouts/BaseLayout.astro';
 import '../styles/portfolio.css';
 
-// LIVE URL (ensure VITE_STOCK_URL is set in apps/landing/.env or Vercel)
+// LIVE URL (ensure this is set in apps/landing/.env or Vercel)
 const STOCK_URL     = import.meta.env.VITE_STOCK_URL;
 const BUDGETOR_URL  = ''; // not live yet
 
@@ -11,7 +11,7 @@ const LINKEDIN_URL  = 'https://www.linkedin.com/in/thomas-shore/';
 const GITHUB_URL    = 'https://github.com/tshore2004';
 const EMAIL_ADDRESS = 'shore.74@osu.edu';
 const EMAIL_LINK    = `mailto:${EMAIL_ADDRESS}`;
-const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Place PDF in public folder
+const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/public/
 ---
 
 <Layout title="Thomas Shore – Portfolio">
@@ -24,7 +24,7 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Place PDF in public folder
       <ul class="navbar-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about-me">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -106,15 +106,19 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Place PDF in public folder
   </section>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    ABOUT SECTION
+    ABOUT ME SECTION
   ──────────────────────────────────────────────────────────────────────────-->
-  <section id="about" class="about-section">
+  <section id="about-me" class="about-section">
     <div class="about-inner">
       <p>
-        I’m currently pursuing a degree in Computer Science &amp; Engineering at The Ohio State University.<br/>
-        My interests include full‐stack web applications, machine learning, and data‐driven algorithms.<br/>
-        In my free time I enjoy building small utilities, experimenting with AI/ML projects, and contributing to open–source.
+        I am a junior studying Computer Science &amp; Engineering at The Ohio State University, passionate about building full‐stack web applications, exploring machine learning, and designing efficient algorithms.  
+        When I’m not coding, I enjoy solving puzzles, contributing to open‐source, and researching new AI/ML techniques.
       </p>
+      <div class="about-button-row">
+        <a href={RESUME_PATH} class="button button-view-resume" target="_blank" rel="noopener noreferrer">
+          View Resume
+        </a>
+      </div>
     </div>
   </section>
 
@@ -140,12 +144,6 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Place PDF in public folder
       <div class="contact-card">
         <h3 class="contact-title">GitHub</h3>
         <a href={GITHUB_URL} class="contact-link" target="_blank" rel="noopener noreferrer">View Repositories ↗</a>
-      </div>
-
-      <!-- Resume Card -->
-      <div class="contact-card">
-        <h3 class="contact-title">Resume</h3>
-        <a href={RESUME_PATH} class="contact-link" download>Download PDF</a>
       </div>
     </div>
   </section>
