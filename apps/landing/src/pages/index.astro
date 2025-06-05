@@ -2,64 +2,65 @@
 import Layout from '../layouts/BaseLayout.astro';
 import '../styles/portfolio.css';
 
-// Live URLs (ensure VITE_STOCK_URL is set on Vercel or in apps/landing/.env)
+// LIVE URL (set VITE_STOCK_URL in Vercel or apps/landing/.env)
 const STOCK_URL     = import.meta.env.VITE_STOCK_URL;
-const BUDGETOR_URL  = ''; // Budgetor not live yet
+const BUDGETOR_URL  = ''; // not live yet
 
-// External links
+// EXTERNAL LINKS
 const LINKEDIN_URL  = 'https://www.linkedin.com/in/thomas-shore/';
 const GITHUB_URL    = 'https://github.com/tshore2004';
-const EMAIL_ADDRESS = 'thomas.shore@osu.edu';
+const EMAIL_ADDRESS = 'shore.74@osu.edu';
 const EMAIL_LINK    = `mailto:${EMAIL_ADDRESS}`;
-const RESUME_PATH   = '/SHORE_THOMAS_RESUME.pdf'; // Put your PDF into apps/landing/public/
+const RESUME_PATH   = '/Shore_Thomas_Resume.pdf';
 ---
+
 <Layout title="Thomas Shore – Portfolio">
   <!--─────────────────────────────────────────────────────────────────────────
-    HEADER (HERO + NAV)
+    HEADER / HERO
   ──────────────────────────────────────────────────────────────────────────-->
   <header class="site-header">
-    <div class="header-content">
+    <div class="header-container">
       <div class="hero-text">
-        <h1 class="site-title">Thomas Shore</h1>
-        <p class="site-subtitle">Computer Science & Engineering Student</p>
+        <h1 class="hero-title">Thomas Shore</h1>
+        <p class="hero-subtitle">Computer Science &amp; Engineering Student</p>
       </div>
-      <nav class="header-nav">
-        <a href={EMAIL_LINK}   class="header-button" title="Email Me">✉️ Email</a>
-        <a href={LINKEDIN_URL} class="header-button" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href={GITHUB_URL}   class="header-button" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="#resume"       class="header-button">Resume</a>
+      <nav class="hero-links">
+        <a href={EMAIL_LINK}   class="hero-button" title="Email Me">✉️ Email</a>
+        <a href={LINKEDIN_URL} class="hero-button" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={GITHUB_URL}   class="hero-button" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#resume"       class="hero-button">Resume</a>
       </nav>
     </div>
   </header>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    ABOUT / INTRO SECTION
+    ABOUT / INTRO (BRIEF)
   ──────────────────────────────────────────────────────────────────────────-->
   <section class="about-section">
-    <div class="about-content">
+    <div class="about-inner">
       <p>
-        Hello! I’m currently pursuing a degree in Computer Science & Engineering at The Ohio State University.  
-        My work spans full-stack applications, AI models, and efficient algorithms.  
-        Feel free to explore my projects below or download my resume.
+        I’m currently pursuing a degree in Computer Science &amp; Engineering at The Ohio State University.  
+        My interests include full-stack web applications, machine learning, and data-driven algorithms.  
+        Feel free to explore my projects below or scroll to my resume.
       </p>
     </div>
   </section>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    PROJECTS SECTION
+    PROJECTS GRID
   ──────────────────────────────────────────────────────────────────────────-->
   <section class="projects-section">
     <h2 class="section-heading">Projects</h2>
     <div class="projects-grid">
       <!-- STOCK PREDICTOR CARD -->
-      <div class="project-card">
-        <div class="card-header">
+      <article class="project-card">
+        <div class="card-top">
           <h3 class="card-title">Stock Predictor</h3>
           <p class="card-desc">
-            React + FastAPI app that uses an LSTM neural network to predict short-term stock movement. Deployed on Vercel.
+            React + FastAPI app using an LSTM neural network to forecast short‐term stock movements. Deployed on Vercel.
           </p>
         </div>
-        <div class="card-iframe">
+        <div class="card-demo">
           <iframe
             src={STOCK_URL}
             title="Stock Predictor Demo"
@@ -68,7 +69,7 @@ const RESUME_PATH   = '/SHORE_THOMAS_RESUME.pdf'; // Put your PDF into apps/land
             allowfullscreen
           ></iframe>
         </div>
-        <div class="card-buttons">
+        <div class="card-actions">
           <a href={STOCK_URL} class="button button-live" target="_blank" rel="noopener noreferrer">
             Live Demo ↗
           </a>
@@ -76,32 +77,34 @@ const RESUME_PATH   = '/SHORE_THOMAS_RESUME.pdf'; // Put your PDF into apps/land
             View Code
           </a>
         </div>
-      </div>
+      </article>
 
       <!-- BUDGETOR CARD -->
-      <div class="project-card">
-        <div class="card-header">
+      <article class="project-card">
+        <div class="card-top">
           <h3 class="card-title">Budgetor</h3>
           <p class="card-desc">
-            Full-stack budgeting application (Astro + Node.js + MongoDB) to track income and expenses.  
-            (Coming Soon)
+            Full-stack budgeting app (Astro + Node.js + MongoDB) to track income and expenses in real time.  
+            <span class="coming-soon-inline">Coming Soon</span>
           </p>
         </div>
         <div class="card-placeholder">
-          <span class="coming-soon">Coming Soon</span>
+          <span class="coming-soon-badge">Coming Soon</span>
         </div>
-        <div class="card-buttons">
-          <a href="#" class="button button-live button-disabled" aria-disabled="true">Live Demo</a>
+        <div class="card-actions">
+          <a href="#" class="button button-live button-disabled" aria-disabled="true">
+            Live Demo
+          </a>
           <a href={GITHUB_URL + '/Budgetor'} class="button button-github" target="_blank" rel="noopener noreferrer">
             View Code
           </a>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    RESUME SECTION (EMBED + DOWNLOAD)
+    RESUME SECTION
   ──────────────────────────────────────────────────────────────────────────-->
   <section id="resume" class="resume-section">
     <h2 class="section-heading">Resume</h2>
@@ -111,9 +114,11 @@ const RESUME_PATH   = '/SHORE_THOMAS_RESUME.pdf'; // Put your PDF into apps/land
         type="application/pdf"
         class="resume-object"
         aria-label="Thomas Shore Resume"
+        width="100%"
+        height="600"
       >
         <p>
-          Your browser does not support embedded PDFs.  
+          PDF preview is not supported in this browser.  
           <a href={RESUME_PATH} class="button button-download">Download Resume</a>
         </p>
       </object>
