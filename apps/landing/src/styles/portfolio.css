@@ -2,7 +2,7 @@
   GLOBAL STYLES & DARK THEME
 ─────────────────────────────────────────────────────────────────────────*/
 html {
-  scroll-behavior: smooth; /* Smooth scroll on anchor clicks */
+  scroll-behavior: smooth; /* Smooth scroll when clicking anchor links */
 }
 
 body {
@@ -10,7 +10,8 @@ body {
   padding: 0;
   background-color: #121212;
   color: #e0e0e0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -67,8 +68,29 @@ body {
 ─────────────────────────────────────────────────────────────────────────*/
 .hero-section {
   background-color: #1e1e1e;
-  padding: 6rem 2rem; /* Increased vertical padding for flow */
+  padding: 6rem 2rem; /* Extra vertical space */
   text-align: center;
+  position: relative;
+}
+
+.osu-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 80px;
+  height: auto;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #2e3b4e;
+  object-fit: cover;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-in-out 0.2s;
 }
 
 .hero-content {
@@ -102,7 +124,7 @@ body {
   background-color: #2e3b4e;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.75rem 1.5rem; /* Larger click area */
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 500;
@@ -136,7 +158,7 @@ body {
 ─────────────────────────────────────────────────────────────────────────*/
 .projects-section {
   max-width: 1100px;
-  margin: 4rem auto; /* More top margin to separate from hero */
+  margin: 4rem auto; /* Extra top margin */
   padding: 0 1rem;
 }
 
@@ -150,11 +172,21 @@ body {
   animation: fadeIn 1s forwards ease-in-out 0.4s;
 }
 
-/* Increase minimum card width so they’re not squished */
+/* Optional banner above the grid */
+.projects-banner {
+  display: block;
+  margin: 0 auto 2.5rem auto;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-in-out 0.5s;
+}
+
 .projects-grid {
   display: grid;
-  gap: 2.5rem; /* Larger gaps */
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2.5rem; /* Larger gap between cards */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
 }
 
 .project-card {
@@ -175,7 +207,7 @@ body {
 }
 
 .card-top {
-  padding: 1.75rem 1.75rem 0 1.75rem; /* Increased padding */
+  padding: 1.75rem 1.75rem 0 1.75rem;
 }
 
 .card-title {
@@ -237,7 +269,7 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 1.5rem 1.75rem; /* More padding */
+  padding: 1.5rem 1.75rem;
   background-color: #1f1f1f;
 }
 
@@ -288,22 +320,32 @@ body {
 ─────────────────────────────────────────────────────────────────────────*/
 .about-section {
   max-width: 800px;
-  margin: 4rem auto; /* Increased top margin for separation */
+  margin: 4rem auto; /* Top margin for separation */
   padding: 0 1rem;
+}
+
+.about-section .section-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-in-out 0.7s;
 }
 
 .about-inner {
   background-color: #1e1e1e;
   border: 1px solid #2e2e2e;
   border-radius: 8px;
-  padding: 2rem; /* Larger padding */
+  padding: 2rem; /* Ample padding */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   opacity: 0;
   animation: fadeIn 1s forwards ease-in-out 0.8s;
 }
 
 .about-inner p {
-  margin: 0 0 1.5rem 0; /* Space below paragraph */
+  margin: 0 0 1.5rem 0;
   font-size: 1.05rem;
   color: #cccccc;
   line-height: 1.6;
@@ -355,7 +397,7 @@ body {
   background-color: #1e1e1e;
   border: 1px solid #2e2e2e;
   border-radius: 8px;
-  padding: 1.5rem; /* Larger padding */
+  padding: 1.5rem;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
@@ -441,6 +483,10 @@ body {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .projects-section {
+    margin: 2rem auto; /* Slightly less top margin on mobile */
   }
 
   .about-inner {

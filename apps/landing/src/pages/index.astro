@@ -2,7 +2,7 @@
 import Layout from '../layouts/BaseLayout.astro';
 import '../styles/portfolio.css';
 
-// LIVE URL (ensure this is set in apps/landing/.env or Vercel)
+// LIVE URL (be sure VITE_STOCK_URL is set in your .env or Vercel)
 const STOCK_URL     = import.meta.env.VITE_STOCK_URL;
 const BUDGETOR_URL  = ''; // not live yet
 
@@ -11,7 +11,12 @@ const LINKEDIN_URL  = 'https://www.linkedin.com/in/thomas-shore/';
 const GITHUB_URL    = 'https://github.com/tshore2004';
 const EMAIL_ADDRESS = 'shore.74@osu.edu';
 const EMAIL_LINK    = `mailto:${EMAIL_ADDRESS}`;
-const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/public/
+const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Place this in apps/landing/public/
+
+// IMAGE PATHS (drop your images into `apps/landing/public/images/`)
+const OSU_LOGO      = '/images/ohio-state-logo.png';   // e.g. 200×200 px
+const PROFILE_PHOTO  = '/images/profile-photo.png';     // your headshot
+//const PROJECT_BANNER = '/images/projects-banner.png';   // optional banner above projects
 ---
 
 <Layout title="Thomas Shore – Portfolio">
@@ -34,32 +39,69 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/pub
     HERO (HOME) SECTION
   ──────────────────────────────────────────────────────────────────────────-->
   <section id="hero" class="hero-section">
+    <!-- Ohio State Logo Top-Left -->
+    <img
+      src={OSU_LOGO}
+      alt="The Ohio State University Logo"
+      class="osu-logo"
+    />
+
     <div class="hero-content">
+      <!-- Profile Photo (right side on desktop, above text on mobile) -->
+      <img
+        src={PROFILE_PHOTO}
+        alt="Thomas Shore Profile Photo"
+        class="profile-photo"
+      />
+
       <h1 class="hero-title">Thomas Shore</h1>
       <p class="hero-subtitle">Computer Science &amp; Engineering Student</p>
+
       <div class="hero-buttons">
-        <a href={EMAIL_LINK} class="button button-hero" title="Email Me">✉️ Email</a>
-        <a href={LINKEDIN_URL} class="button button-hero" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href={GITHUB_URL} class="button button-hero" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href={EMAIL_LINK} class="button button-hero" title="Email Me">
+          ✉️ Email
+        </a>
+        <a
+          href={LINKEDIN_URL}
+          class="button button-hero"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a
+          href={GITHUB_URL}
+          class="button button-hero"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
       </div>
     </div>
+
     <div class="hero-arrow">
       <a href="#projects">⌄</a>
     </div>
   </section>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    PROJECTS SECTION
+    PROJECTS SECTION (WITH OPTIONAL BANNER)
   ──────────────────────────────────────────────────────────────────────────-->
   <section id="projects" class="projects-section">
     <h2 class="section-heading">Projects</h2>
+
+    <!-- Optional banner image above the grid -->
+
+
     <div class="projects-grid">
       <!-- STOCK PREDICTOR CARD -->
       <article class="project-card">
         <div class="card-top">
           <h3 class="card-title">Stock Predictor</h3>
           <p class="card-desc">
-            React + FastAPI app using an LSTM neural network to forecast short‐term stock movements. Deployed on Vercel.
+            React + FastAPI app using an LSTM neural network to forecast
+            short‐term stock movements. Deployed on Vercel.
           </p>
         </div>
         <div class="card-demo">
@@ -72,10 +114,20 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/pub
           ></iframe>
         </div>
         <div class="card-actions">
-          <a href={STOCK_URL} class="button button-live" target="_blank" rel="noopener noreferrer">
+          <a
+            href={STOCK_URL}
+            class="button button-live"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Live Demo ↗
           </a>
-          <a href={GITHUB_URL + '/stock-predictor-web'} class="button button-github" target="_blank" rel="noopener noreferrer">
+          <a
+            href={GITHUB_URL + '/stock-predictor-web'}
+            class="button button-github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View Code
           </a>
         </div>
@@ -86,7 +138,8 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/pub
         <div class="card-top">
           <h3 class="card-title">Budgetor</h3>
           <p class="card-desc">
-            Full-stack budgeting app (Astro + Node.js + MongoDB) to track income and expenses in real time.  
+            Full-stack budgeting app (Astro + Node.js + MongoDB) to track
+            income and expenses in real time.
             <span class="coming-soon-inline">Coming Soon</span>
           </p>
         </div>
@@ -94,10 +147,19 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/pub
           <span class="coming-soon-badge">Coming Soon</span>
         </div>
         <div class="card-actions">
-          <a href="#" class="button button-live button-disabled" aria-disabled="true">
+          <a
+            href="#"
+            class="button button-live button-disabled"
+            aria-disabled="true"
+          >
             Live Demo
           </a>
-          <a href={GITHUB_URL + '/Budgetor'} class="button button-github" target="_blank" rel="noopener noreferrer">
+          <a
+            href={GITHUB_URL + '/Budgetor'}
+            class="button button-github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View Code
           </a>
         </div>
@@ -109,13 +171,21 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/pub
     ABOUT ME SECTION
   ──────────────────────────────────────────────────────────────────────────-->
   <section id="about-me" class="about-section">
+    <h2 class="section-heading">About Me</h2>
     <div class="about-inner">
       <p>
-        I am a junior studying Computer Science &amp; Engineering at The Ohio State University, passionate about building full‐stack web applications, exploring machine learning, and designing efficient algorithms.  
-        When I’m not coding, I enjoy solving puzzles, contributing to open‐source, and researching new AI/ML techniques.
+        I am a senior studying Computer Science &amp; Engineering at The Ohio
+        State University, passionate about building full‐stack web
+        applications, exploring machine learning, and designing efficient
+        algorithms. When I’m not coding, I enjoy running.
       </p>
       <div class="about-button-row">
-        <a href={RESUME_PATH} class="button button-view-resume" target="_blank" rel="noopener noreferrer">
+        <a
+          href={RESUME_PATH}
+          class="button button-view-resume"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View Resume
         </a>
       </div>
@@ -137,13 +207,27 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Put PDF in apps/landing/pub
       <!-- LinkedIn Card -->
       <div class="contact-card">
         <h3 class="contact-title">LinkedIn</h3>
-        <a href={LINKEDIN_URL} class="contact-link" target="_blank" rel="noopener noreferrer">View Profile ↗</a>
+        <a
+          href={LINKEDIN_URL}
+          class="contact-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Profile ↗
+        </a>
       </div>
 
       <!-- GitHub Card -->
       <div class="contact-card">
         <h3 class="contact-title">GitHub</h3>
-        <a href={GITHUB_URL} class="contact-link" target="_blank" rel="noopener noreferrer">View Repositories ↗</a>
+        <a
+          href={GITHUB_URL}
+          class="contact-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Repositories ↗
+        </a>
       </div>
     </div>
   </section>
