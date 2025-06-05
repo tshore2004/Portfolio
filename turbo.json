@@ -7,7 +7,11 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**",
       "dist/**",
-      "!.next/cache/**"]
+      "!.next/cache/**"],
+      "env": [
+        "VITE_STOCK_URL",
+        "VITE_BUDGETOR_URL"
+      ]
     },
     "lint": {
       "dependsOn": ["^lint"]
