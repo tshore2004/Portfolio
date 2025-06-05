@@ -2,7 +2,7 @@
 import Layout from '../layouts/BaseLayout.astro';
 import '../styles/portfolio.css';
 
-// LIVE URL (set VITE_STOCK_URL in Vercel or apps/landing/.env)
+// LIVE URL (ensure VITE_STOCK_URL is set in apps/landing/.env or Vercel)
 const STOCK_URL     = import.meta.env.VITE_STOCK_URL;
 const BUDGETOR_URL  = ''; // not live yet
 
@@ -11,45 +11,47 @@ const LINKEDIN_URL  = 'https://www.linkedin.com/in/thomas-shore/';
 const GITHUB_URL    = 'https://github.com/tshore2004';
 const EMAIL_ADDRESS = 'shore.74@osu.edu';
 const EMAIL_LINK    = `mailto:${EMAIL_ADDRESS}`;
-const RESUME_PATH   = '/Shore_Thomas_Resume.pdf';
+const RESUME_PATH   = '/Shore_Thomas_Resume.pdf'; // Place PDF in public folder
 ---
 
 <Layout title="Thomas Shore – Portfolio">
   <!--─────────────────────────────────────────────────────────────────────────
-    HEADER / HERO
+    NAVBAR (IN-PAGE LINKS)
   ──────────────────────────────────────────────────────────────────────────-->
-  <header class="site-header">
-    <div class="header-container">
-      <div class="hero-text">
-        <h1 class="hero-title">Thomas Shore</h1>
-        <p class="hero-subtitle">Computer Science &amp; Engineering Student</p>
-      </div>
-      <nav class="hero-links">
-        <a href={EMAIL_LINK}   class="hero-button" title="Email Me">✉️ Email</a>
-        <a href={LINKEDIN_URL} class="hero-button" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href={GITHUB_URL}   class="hero-button" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="#resume"       class="hero-button">Resume</a>
-      </nav>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">Thomas Shore</div>
+      <ul class="navbar-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    ABOUT / INTRO (BRIEF)
+    HERO (HOME) SECTION
   ──────────────────────────────────────────────────────────────────────────-->
-  <section class="about-section">
-    <div class="about-inner">
-      <p>
-        I’m currently pursuing a degree in Computer Science &amp; Engineering at The Ohio State University.  
-        My interests include full-stack web applications, machine learning, and data-driven algorithms.  
-        Feel free to explore my projects below or scroll to my resume.
-      </p>
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Thomas Shore</h1>
+      <p class="hero-subtitle">Computer Science &amp; Engineering Student</p>
+      <div class="hero-buttons">
+        <a href={EMAIL_LINK} class="button button-hero" title="Email Me">✉️ Email</a>
+        <a href={LINKEDIN_URL} class="button button-hero" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={GITHUB_URL} class="button button-hero" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-arrow">
+      <a href="#projects">⌄</a>
     </div>
   </section>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    PROJECTS GRID
+    PROJECTS SECTION
   ──────────────────────────────────────────────────────────────────────────-->
-  <section class="projects-section">
+  <section id="projects" class="projects-section">
     <h2 class="section-heading">Projects</h2>
     <div class="projects-grid">
       <!-- STOCK PREDICTOR CARD -->
@@ -104,27 +106,47 @@ const RESUME_PATH   = '/Shore_Thomas_Resume.pdf';
   </section>
 
   <!--─────────────────────────────────────────────────────────────────────────
-    RESUME SECTION
+    ABOUT SECTION
   ──────────────────────────────────────────────────────────────────────────-->
-  <section id="resume" class="resume-section">
-    <h2 class="section-heading">Resume</h2>
-    <div class="resume-container">
-      <object
-        data={RESUME_PATH}
-        type="application/pdf"
-        class="resume-object"
-        aria-label="Thomas Shore Resume"
-        width="100%"
-        height="600"
-      >
-        <p>
-          PDF preview is not supported in this browser.  
-          <a href={RESUME_PATH} class="button button-download">Download Resume</a>
-        </p>
-      </object>
-      <a href={RESUME_PATH} class="button button-download" download>
-        Download Resume
-      </a>
+  <section id="about" class="about-section">
+    <div class="about-inner">
+      <p>
+        I’m currently pursuing a degree in Computer Science &amp; Engineering at The Ohio State University.<br/>
+        My interests include full‐stack web applications, machine learning, and data‐driven algorithms.<br/>
+        In my free time I enjoy building small utilities, experimenting with AI/ML projects, and contributing to open–source.
+      </p>
+    </div>
+  </section>
+
+  <!--─────────────────────────────────────────────────────────────────────────
+    CONTACT SECTION
+  ──────────────────────────────────────────────────────────────────────────-->
+  <section id="contact" class="contact-section">
+    <h2 class="section-heading">Contact</h2>
+    <div class="contact-grid">
+      <!-- Email Card -->
+      <div class="contact-card">
+        <h3 class="contact-title">Email</h3>
+        <a href={EMAIL_LINK} class="contact-link">{EMAIL_ADDRESS}</a>
+      </div>
+
+      <!-- LinkedIn Card -->
+      <div class="contact-card">
+        <h3 class="contact-title">LinkedIn</h3>
+        <a href={LINKEDIN_URL} class="contact-link" target="_blank" rel="noopener noreferrer">View Profile ↗</a>
+      </div>
+
+      <!-- GitHub Card -->
+      <div class="contact-card">
+        <h3 class="contact-title">GitHub</h3>
+        <a href={GITHUB_URL} class="contact-link" target="_blank" rel="noopener noreferrer">View Repositories ↗</a>
+      </div>
+
+      <!-- Resume Card -->
+      <div class="contact-card">
+        <h3 class="contact-title">Resume</h3>
+        <a href={RESUME_PATH} class="contact-link" download>Download PDF</a>
+      </div>
     </div>
   </section>
 
