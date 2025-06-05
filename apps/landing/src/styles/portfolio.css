@@ -1,0 +1,90 @@
+/* apps/landing/src/styles/projects.css */
+
+.projects-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.projects-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects-container .intro {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.projects {
+  display: grid;
+  gap: 1.5rem;
+  /* auto-fill cards of at least 280px, growing to fill row */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.card-content p {
+  margin: 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+.card-footer {
+  background: #f9f9f9;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  border: 1px solid #888;
+  color: #333;
+}
+
+/* “Live Demo” button (green) */
+.button.demo {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+}
+
+.button.demo:hover {
+  background-color: #43a047;
+  border-color: #43a047;
+}
+
+/* “GitHub” button (gray border, light-hover) */
+.button.github:hover {
+  background-color: #ececec;
+}
