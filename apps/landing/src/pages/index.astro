@@ -4,7 +4,7 @@ import '../styles/portfolio.css';
 
 // LIVE URL (be sure VITE_STOCK_URL is set in your .env or Vercel)
 const STOCK_URL     = import.meta.env.VITE_STOCK_URL;
-const BUDGETOR_URL  = ''; // not live yet
+const BUDGETOR_URL  = import.meta.env.VITE_BUDGETOR_URL; // not live yet
 
 // EXTERNAL LINKS
 const LINKEDIN_URL  = 'https://www.linkedin.com/in/thomas-shore/';
@@ -140,15 +140,27 @@ const PROFILE_PHOTO  = '/images/profile-photo.png';     // your headshot
           <p class="card-desc">
             Full-stack budgeting app (Astro + Node.js + MongoDB) to track
             income and expenses in real time.
-            <span class="coming-soon-inline">Coming Soon</span>
           </p>
         </div>
-        <div class="card-placeholder">
-          <span class="coming-soon-badge">Coming Soon</span>
+        <div class="card-demo">
+          <iframe
+            src={BUDGETOR_URL}
+            title="Budgetor Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
         <div class="card-actions">
           <a
-            href="#"
+            href={BUDGETOR_URL}
+            class="button button-live"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+        <div class="card-actions">
+          <a
+            href={BUDGETOR_URL}
             class="button button-live button-disabled"
             aria-disabled="true"
           >
