@@ -1,5 +1,3 @@
-import  SpeedInsights  from "@vercel/speed-insights/astro"
-import Analytics from '@vercel/analytics/astro'
 ---
 /** 
  * apps/landing/src/layouts/BaseLayout.astro
@@ -12,7 +10,8 @@ import Analytics from '@vercel/analytics/astro'
  *     <!-- page‐specific content here -->
  *   </Layout>
  */
-
+import Analytics from '@vercel/analytics/astro'
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 // Pull in the `title` prop; default to an empty string if not provided
 const { title = '' } = Astro.props;
 ---
